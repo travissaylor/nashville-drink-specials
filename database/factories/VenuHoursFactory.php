@@ -25,7 +25,7 @@ class VenuHoursFactory extends Factory
     {
         return [
             'venu_id' => Venu::factory(),
-            'day' => $this->faker->numberBetween(-10000, 10000),
+            'day' => $this->faker->numberBetween(0, 6),
             'open_time' => $this->faker->time(),
             'close_time' => $this->faker->time(),
         ];

@@ -26,9 +26,9 @@ class VenuFactory extends Factory
         return [
             'name' => $this->faker->name,
             'description' => $this->faker->text,
-            'address' => $this->faker->word,
+            'address' => $this->faker->address(),
             'phone_number' => $this->faker->phoneNumber,
-            'website_url' => $this->faker->word,
+            'website_url' => $this->faker->url(),
             'covid_protocol' => $this->faker->text,
             'neighborhood_id' => Neighborhood::factory(),
         ];
