@@ -1,0 +1,33 @@
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
+use App\Models\Venu;
+use App\Models\VenuHours;
+
+class VenuHoursFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = VenuHours::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'venu_id' => Venu::factory(),
+            'day' => $this->faker->numberBetween(-10000, 10000),
+            'open_time' => $this->faker->time(),
+            'close_time' => $this->faker->time(),
+        ];
+    }
+}
