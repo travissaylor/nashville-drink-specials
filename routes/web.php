@@ -27,7 +27,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
-    Route::prefix('admin')->as('admin.')->group(function () {
+    Route::prefix('admin')->middleware('role:admin')->as('admin.')->group(function () {
         Route::get('/events', Index::class)->name('events.index');
     });
 });
