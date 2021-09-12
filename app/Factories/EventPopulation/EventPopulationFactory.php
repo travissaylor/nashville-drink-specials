@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Factories;
+namespace App\Factories\EventPopulation;
 
 use App\Models\Event;
 use App\Strategies\EventPopulation\IEventPopulationStrategy;
@@ -11,11 +11,12 @@ class EventPopulationFactory
 {
     public function getEventPopulationStrategy(Event $event): IEventPopulationStrategy
     {
-        if (!$event->is_recurring) {
+        $eventType = ucwords(strtolower($event->recurringPattern->recurring_type));
+
+        if (!$event->is_recurring || !class_exists($eventType)) {
             return new SingleEventPopulationStrategy();
         }
 
-        $eventType = ucwords(strtolower($event->recurringPattern->recurring_type));
         return App::make("\App\Strategies\EventPopulation\{$eventType}EventPopulationStrategy");
     }
 }

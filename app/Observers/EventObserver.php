@@ -2,14 +2,14 @@
 
 namespace App\Observers;
 
-use App\Factories\eventPopulationFactory;
+use App\Factories\EventPopulation\EventPopulationFactory;
 use App\Models\Event;
 
 class EventObserver
 {
-    protected eventPopulationFactory $eventPopulationFactory;
+    protected EventPopulationFactory $eventPopulationFactory;
 
-    public function __construct(eventPopulationFactory $eventPopulationFactory)
+    public function __construct(EventPopulationFactory $eventPopulationFactory)
     {
         $this->eventPopulationFactory = $eventPopulationFactory;
     }
