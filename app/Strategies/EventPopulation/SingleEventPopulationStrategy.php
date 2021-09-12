@@ -12,7 +12,7 @@ class SingleEventPopulationStrategy
         Occurrence::create([
             'event_id' => $event->id,
             'start_date' => $event->start_date, 
-            'end_date' => $event->end_date, 
+            'end_date' => $event->start_date, 
             'start_time' => $event->start_time, 
             'end_time' => $event->end_time,
         ]);
@@ -26,7 +26,7 @@ class SingleEventPopulationStrategy
         Occurrence::create([
             'event_id' => $event->id,
             'start_date' => $event->start_date, 
-            'end_date' => $event->end_date, 
+            'end_date' => $event->start_date, 
             'start_time' => $event->start_time, 
             'end_time' => $event->end_time,
         ]);

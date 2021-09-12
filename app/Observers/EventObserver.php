@@ -4,14 +4,15 @@ namespace App\Observers;
 
 use App\Factories\EventPopulation\EventPopulationFactory;
 use App\Models\Event;
+use App\Strategies\EventPopulation\SingleEventPopulationStrategy;
 
 class EventObserver
 {
-    protected EventPopulationFactory $eventPopulationFactory;
+    protected SingleEventPopulationStrategy $SingleEventPopulationStrategy;
 
-    public function __construct(EventPopulationFactory $eventPopulationFactory)
+    public function __construct(SingleEventPopulationStrategy $SingleEventPopulationStrategy)
     {
-        $this->eventPopulationFactory = $eventPopulationFactory;
+        $this->SingleEventPopulationStrategy = $SingleEventPopulationStrategy;
     }
     /**
      * Handle the Event "created" event.
@@ -21,8 +22,7 @@ class EventObserver
      */
     public function created(Event $event)
     {
-        $eventPopulationStrategy = $this->eventPopulationFactory->getEventPopulationStrategy($event);
-        $eventPopulationStrategy->createEventOccurrances($event);
+        $this->SingleEventPopulationStrategy->createEventOccurrances($event);
     }
 
     /**
@@ -33,8 +33,7 @@ class EventObserver
      */
     public function updated(Event $event)
     {
-        $eventPopulationStrategy = $this->eventPopulationFactory->getEventPopulationStrategy($event);
-        $eventPopulationStrategy->updateEventOccurrances($event);
+        $this->SingleEventPopulationStrategy->updateEventOccurrances($event);
     }
 
     /**
@@ -45,8 +44,7 @@ class EventObserver
      */
     public function deleted(Event $event)
     {
-        $eventPopulationStrategy = $this->eventPopulationFactory->getEventPopulationStrategy($event);
-        $eventPopulationStrategy->deleteEventOccurrances($event);
+        $this->SingleEventPopulationStrategy->deleteEventOccurrances($event);
     }
 
     /**

@@ -9,7 +9,7 @@
                     <x-textarea label="Description" placeholder="Event Description" />
                 </div>
                 <div class="p-2 w-full">
-                    <x-select label="Venu" placeholder="Select a Venu" wire:model.defer="selectedCharacterId">
+                    <x-select label="Venu" placeholder="Select a Venu" wire:model="selectedCharacterId">
                         @foreach ($venus as $venu)
                             <x-select.option label="{{ $venu->name }}" value="{{ $venu->id }}" />
                         @endforeach
@@ -27,7 +27,18 @@
                 </div>
                 @if ($isRecurring)
                     <div class="p-2 w-full">
-                        <h1>Recurring Settings</h1>
+                        <x-select label="Recurring Type" placeholder="Select Recurring Type"
+                            wire:model="selectedRecurringType">
+                            @foreach ($recurringTypes as $key => $type)
+                                <x-select.option label="{{ Str::ucfirst(Str::lower($type)) }}" value="{{ $type }}" />
+                            @endforeach
+                        </x-select>
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <x-input label="Interval Between Events" wire:model="repeatInterval"/>
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <x-input label="Maximum Total Occurrences of Event" wire:model="maxOccurances"/>
                     </div>
                 @endif
                 <div class="p-2 w-full">
