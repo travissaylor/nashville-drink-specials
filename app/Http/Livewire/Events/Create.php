@@ -32,13 +32,6 @@ class Create extends Component
     {
         $this->validate();
 
-        // Quote::create([
-        //     'content' => $this->quote,
-        //     'movie_timestamp' => $this->movieTimestamp,
-        //     'movie_id' => $this->selectedMovieId, 
-        //     'character_id' => $this->selectedCharacterId
-        // ]);
-
         Event::create([
             'name' => $this->name,
             'description' => $this->description,
