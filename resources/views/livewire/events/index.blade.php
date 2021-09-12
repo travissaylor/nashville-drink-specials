@@ -5,7 +5,7 @@
                 <input wire:model="search" placeholder="Search Quotes"
                     class="focus:ring-indigo-500 focus:border-indigo-500 p-2 lg:w-1/4  block rounded-md sm:text-sm border-gray-300" />
             </div>
-            <a class="flex-3" href="{{ route('admin.events.index') }}">
+            <a class="flex-3" href="{{ route('admin.events.create') }}">
                 <svg class="h-10 w-10 text-indigo-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                     stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" />
