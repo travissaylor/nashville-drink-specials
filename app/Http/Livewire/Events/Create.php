@@ -16,6 +16,9 @@ class Create extends Component
     public $isFullDay = false;
     public $venus;
     public $selectedVenuId;
+    public $recurringType = [
+        
+    ];
 
     protected $rules = [
         'name' => 'required|string',
