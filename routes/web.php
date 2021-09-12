@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Events\Create;
+use App\Http\Livewire\Events\Edit;
 use App\Http\Livewire\Events\Index;
 use Illuminate\Support\Facades\Route;
 
@@ -31,5 +32,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::prefix('admin')->middleware('role:admin')->as('admin.')->group(function () {
         Route::get('/events', Index::class)->name('events.index');
         Route::get('/events/new', Create::class)->name('events.create');
+        Route::get('/events/{id}/edit', Edit::class)->name('events.edit');
     });
 });
