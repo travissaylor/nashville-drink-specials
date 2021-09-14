@@ -54,10 +54,10 @@ class DailyEventPopulationStrategy
             $this->repeatInterval = $event->recurringPattern->repeat_interval;
         }
 
-        $eventDate = Carbon::parse($event->start_date)->addDays($this->repeatInterval); // Start after initial
+        $eventDate = Carbon::parse($event->start_date); // Create all since we are purging all records first
         $endDate = Carbon::parse($event->end_date); // Overall Event end date
 
-        for ($i = 0; $i < $this->futureOccurrancePopulationMax - 1; $i++) {
+        for ($i = 0; $i < $this->futureOccurrancePopulationMax; $i++) {
             if ($eventDate->greaterThan($endDate)) {
                 return;
             }

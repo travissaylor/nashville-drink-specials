@@ -21,6 +21,8 @@ class RecurringPattern extends Model
         self::RECURRING_TYPE_YEARLY,
     ];
 
+    protected $primaryKey = 'event_id';
+
     /**
      * The attributes that are mass assignable.
      *

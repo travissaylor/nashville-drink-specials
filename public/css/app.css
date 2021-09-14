@@ -2328,20 +2328,20 @@ select {
 .pr-9 {
 	padding-right: 2.25rem;
 }
+.pr-8 {
+	padding-right: 2rem;
+}
+.pr-2\.5 {
+	padding-right: 0.625rem;
+}
 .pl-2\.5 {
 	padding-left: 0.625rem;
 }
 .pl-1 {
 	padding-left: 0.25rem;
 }
-.pr-2\.5 {
-	padding-right: 0.625rem;
-}
 .pr-1 {
 	padding-right: 0.25rem;
-}
-.pr-8 {
-	padding-right: 2rem;
 }
 .pt-8 {
 	padding-top: 2rem;
@@ -3040,6 +3040,13 @@ select {
 	--tw-border-opacity: 1;
 	border-color: rgba(99, 102, 241, var(--tw-border-opacity));
 }
+.focus\:border-transparent:focus {
+	border-color: transparent;
+}
+.focus\:border-primary-600:focus {
+	--tw-border-opacity: 1;
+	border-color: rgba(79, 70, 229, var(--tw-border-opacity));
+}
 .focus\:border-primary-300:focus {
 	--tw-border-opacity: 1;
 	border-color: rgba(165, 180, 252, var(--tw-border-opacity));
@@ -3047,13 +3054,6 @@ select {
 .focus\:border-negative-500:focus {
 	--tw-border-opacity: 1;
 	border-color: rgba(239, 68, 68, var(--tw-border-opacity));
-}
-.focus\:border-transparent:focus {
-	border-color: transparent;
-}
-.focus\:border-primary-600:focus {
-	--tw-border-opacity: 1;
-	border-color: rgba(79, 70, 229, var(--tw-border-opacity));
 }
 .focus\:border-indigo-500:focus {
 	--tw-border-opacity: 1;
@@ -3162,12 +3162,12 @@ select {
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(79, 70, 229, var(--tw-ring-opacity));
 }
+.focus\:ring-transparent:focus {
+	--tw-ring-color: transparent;
+}
 .focus\:ring-negative-500:focus {
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(239, 68, 68, var(--tw-ring-opacity));
-}
-.focus\:ring-transparent:focus {
-	--tw-ring-color: transparent;
 }
 .focus\:ring-indigo-500:focus {
 	--tw-ring-opacity: 1;
