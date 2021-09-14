@@ -22,6 +22,17 @@
                 <div class="p-2 w-1/2">
                     <x-datetime-picker label="End Date" placeholder="DD/MM/YYYY" wire:model="endDate" without-time />
                 </div>
+                @if (!$isFullDay)
+                    <div class="p-2 w-1/2">
+                        <x-time-picker label="Start Time" placeholder="Select Start Time" wire:model="startTime" />
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <x-time-picker label="End Time" placeholder="Select End Time" wire:model="endTime" />
+                    </div>
+                @endif
+                <div class="p-2 w-full">
+                    <x-checkbox label="Is Full Day Event" wire:model="isFullDay" />
+                </div>
                 <div class="p-2 w-full">
                     <x-checkbox label="Is a Recurring Event" wire:model="isRecurring" />
                 </div>
@@ -30,15 +41,16 @@
                         <x-select label="Recurring Type" placeholder="Select Recurring Type"
                             wire:model="selectedRecurringType">
                             @foreach ($recurringTypes as $key => $type)
-                                <x-select.option label="{{ Str::ucfirst(Str::lower($type)) }}" value="{{ $type }}" />
+                                <x-select.option label="{{ Str::ucfirst(Str::lower($type)) }}"
+                                    value="{{ $type }}" />
                             @endforeach
                         </x-select>
                     </div>
                     <div class="p-2 w-1/2">
-                        <x-input label="Interval Between Events" wire:model="repeatInterval"/>
+                        <x-input label="Interval Between Events" wire:model="repeatInterval" />
                     </div>
                     <div class="p-2 w-1/2">
-                        <x-input label="Maximum Total Occurrences of Event" wire:model="maxOccurances"/>
+                        <x-input label="Maximum Total Occurrences of Event" wire:model="maxOccurances" />
                     </div>
                 @endif
                 <div class="p-2 w-full">

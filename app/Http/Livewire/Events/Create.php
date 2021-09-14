@@ -11,10 +11,15 @@ class Create extends Component
 {
     public $name;
     public $description;
+
     public $startDate;
     public $endDate;
+    public $startTime;
+    public $endTime;
+    
     public $isRecurring = false;
     public $isFullDay = false;
+    
     public $venus;
     public $selectedVenuId;
 
@@ -48,6 +53,8 @@ class Create extends Component
             'description' => $this->description,
             'start_date' => $this->startDate,
             'end_date' => $this->endDate,
+            'start_time' => $this->startTime,
+            'end_time' => $this->endTime,
             'is_recurring' => $this->isRecurring,
             'is_full_day' => $this->isFullDay,
             'venu_id' => $this->selectedVenuId,
