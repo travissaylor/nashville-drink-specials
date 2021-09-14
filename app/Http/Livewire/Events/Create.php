@@ -62,7 +62,6 @@ class Create extends Component
 
         if ($this->isRecurring) {
             $event->recurringPattern()->create([
-                'event_id' => $event->id,
                 'recurring_type' => $this->selectedRecurringType,
                 'repeat_interval' => $this->repeatInterval,
                 'max_occurrences' => $this->maxOccurances,

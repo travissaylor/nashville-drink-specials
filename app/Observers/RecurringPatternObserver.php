@@ -7,6 +7,8 @@ use App\Models\RecurringPattern;
 
 class RecurringPatternObserver
 {
+    public $afterCommit = true;
+    
     protected EventPopulationFactory $eventPopulationFactory;
 
     public function __construct(EventPopulationFactory $eventPopulationFactory)
