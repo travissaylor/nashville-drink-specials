@@ -18,6 +18,11 @@
                         :active="request()->routeIs('occurrences.day')">
                         {{ __('Day') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link
+                        href="{{ route('occurrences.month', ['year' => $today->year, 'month' => $today->month]) }}"
+                        :active="request()->routeIs('occurrences.month')">
+                        {{ __('Month') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
@@ -149,7 +154,7 @@
 
                                     <x-jet-dropdown-link href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                            this.closest('form').submit();">
+                                                                                                this.closest('form').submit();">
                                         {{ __('Log Out') }}
                                     </x-jet-dropdown-link>
                                 </form>
@@ -189,8 +194,15 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('occurrences.day', ['year' => $today->year, 'month' => $today->month, 'day' => $today->day]) }}" :active="request()->routeIs('occurrences.day')">
+            <x-jet-responsive-nav-link
+                href="{{ route('occurrences.day', ['year' => $today->year, 'month' => $today->month, 'day' => $today->day]) }}"
+                :active="request()->routeIs('occurrences.day')">
                 {{ __('Day') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link
+                href="{{ route('occurrences.month', ['year' => $today->year, 'month' => $today->month]) }}"
+                :active="request()->routeIs('occurrences.month')">
+                {{ __('Month') }}
             </x-jet-responsive-nav-link>
         </div>
 
@@ -232,7 +244,7 @@
                         @csrf
 
                         <x-jet-responsive-nav-link href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                        this.closest('form').submit();">
+                                                                            this.closest('form').submit();">
                             {{ __('Log Out') }}
                         </x-jet-responsive-nav-link>
                     </form>

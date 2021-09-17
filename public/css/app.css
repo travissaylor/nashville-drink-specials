@@ -1471,17 +1471,14 @@ select {
 .mb-5 {
 	margin-bottom: 1.25rem;
 }
-.mb-2 {
-	margin-bottom: 0.5rem;
+.mb-20 {
+	margin-bottom: 5rem;
 }
 .ml-5 {
 	margin-left: 1.25rem;
 }
 .mr-4 {
 	margin-right: 1rem;
-}
-.mb-20 {
-	margin-bottom: 5rem;
 }
 .block {
 	display: block;
@@ -3979,10 +3976,6 @@ select {
 
 	.lg\:w-1\/4 {
 		width: 25%;
-	}
-
-	.lg\:w-2\/3 {
-		width: 66.666667%;
 	}
 
 	.lg\:px-8 {
