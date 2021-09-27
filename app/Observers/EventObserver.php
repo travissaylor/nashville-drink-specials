@@ -3,11 +3,15 @@
 namespace App\Observers;
 
 use App\Factories\EventPopulation\EventPopulationFactory;
+use App\Jobs\GenerateEventCreationOccurrences;
+use App\Jobs\GenerateEventUpdateOccurrences;
 use App\Models\Event;
 use App\Strategies\EventPopulation\SingleEventPopulationStrategy;
 
 class EventObserver
 {
+    public $afterCommit = true;
+
     protected SingleEventPopulationStrategy $SingleEventPopulationStrategy;
 
     public function __construct(SingleEventPopulationStrategy $SingleEventPopulationStrategy)
@@ -22,7 +26,7 @@ class EventObserver
      */
     public function created(Event $event)
     {
-        $this->SingleEventPopulationStrategy->createEventOccurrances($event);
+        GenerateEventCreationOccurrences::dispatch($event);
     }
 
     /**
@@ -33,7 +37,7 @@ class EventObserver
      */
     public function updated(Event $event)
     {
-        $this->SingleEventPopulationStrategy->updateEventOccurrances($event);
+        GenerateEventUpdateOccurrences::dispatch($event);
     }
 
     /**

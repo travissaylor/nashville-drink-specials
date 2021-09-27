@@ -23,6 +23,8 @@ class RecurringPatternObserver
      */
     public function created(RecurringPattern $recurringPattern)
     {
+        $dirtyAttributes = $recurringPattern->getDirty();
+        dd($dirtyAttributes);
         $event = $recurringPattern->event;
         $eventPopulationStrategy = $this->eventPopulationFactory->getEventPopulationStrategy($event);
         $eventPopulationStrategy->createEventOccurrances($event);
