@@ -86,6 +86,20 @@ class Edit extends Component
         return redirect()->route('admin.events.index');
     }
 
+    public function delete()
+    {
+        if ($this->isRecurring && $this->event->recurringPattern) {
+            $this->event->recurringPattern->delete();
+        }
+
+        // @todo do this in queue
+        $this->event->occurrences()->delete();
+        $this->event->delete();
+
+        return redirect()->route('admin.events.index');
+
+    }
+
     public function render()
     {
         return view('livewire.events.edit');

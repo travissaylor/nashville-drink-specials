@@ -46,6 +46,11 @@ class Event extends Model
         return $this->hasOne(\App\Models\RecurringPattern::class);
     }
 
+    public function occurrences()
+    {
+        return $this->hasMany(\App\Models\Occurrence::class);
+    }
+
     public function eventExceptions()
     {
         return $this->hasMany(\App\Models\EventException::class);
