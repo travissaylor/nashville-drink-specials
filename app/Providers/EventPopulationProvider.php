@@ -28,6 +28,5 @@ class EventPopulationProvider extends ServiceProvider
     public function boot()
     {
         Event::observe(EventObserver::class);
-        // RecurringPattern::observe(RecurringPatternObserver::class);
     }
 }

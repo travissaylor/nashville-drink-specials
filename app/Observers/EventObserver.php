@@ -5,19 +5,12 @@ namespace App\Observers;
 use App\Factories\EventPopulation\EventPopulationFactory;
 use App\Jobs\GenerateEventCreationOccurrences;
 use App\Jobs\GenerateEventUpdateOccurrences;
+use App\Jobs\RemoveEventDeletionOccurrences;
 use App\Models\Event;
 use App\Strategies\EventPopulation\SingleEventPopulationStrategy;
 
 class EventObserver
 {
-    public $afterCommit = true;
-
-    protected SingleEventPopulationStrategy $SingleEventPopulationStrategy;
-
-    public function __construct(SingleEventPopulationStrategy $SingleEventPopulationStrategy)
-    {
-        $this->SingleEventPopulationStrategy = $SingleEventPopulationStrategy;
-    }
     /**
      * Handle the Event "created" event.
      *
@@ -48,7 +41,7 @@ class EventObserver
      */
     public function deleted(Event $event)
     {
-        $this->SingleEventPopulationStrategy->deleteEventOccurrances($event);
+        RemoveEventDeletionOccurrences::dispatch($event);
     }
 
     /**
