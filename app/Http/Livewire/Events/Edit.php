@@ -76,9 +76,7 @@ class Edit extends Component
         $this->event->venu_id  = $this->selectedVenuId;
 
         if ($this->isRecurring) {
-            $this->event->recurringPattern->recurring_type = $this->selectedRecurringType;
-            $this->event->recurringPattern->repeat_interval = $this->repeatInterval ?: null;
-            $this->event->recurringPattern->max_occurrences = $this->maxOccurances ?: null;
+            $this->updateRecurringPattern();
         }
 
         $this->event->push();
@@ -103,5 +101,22 @@ class Edit extends Component
     public function render()
     {
         return view('livewire.events.edit');
+    }
+
+    protected function updateRecurringPattern()
+    {
+        if (empty($this->event->recurringPattern)) {
+            $this->event->recurringPattern()->create([
+                'recurring_type' => $this->selectedRecurringType,
+                'repeat_interval' => $this->repeatInterval,
+                'max_occurrences' => $this->maxOccurances,
+            ]);
+            
+            return;
+        } 
+
+        $this->event->recurringPattern->recurring_type = $this->selectedRecurringType;
+        $this->event->recurringPattern->repeat_interval = $this->repeatInterval ?: null;
+        $this->event->recurringPattern->max_occurrences = $this->maxOccurances ?: null;
     }
 }
