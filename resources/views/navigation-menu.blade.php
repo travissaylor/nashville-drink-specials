@@ -23,6 +23,14 @@
                         :active="request()->routeIs('occurrences.month')">
                         {{ __('Month') }}
                     </x-jet-nav-link>
+                    @auth
+                        @if (auth()->user()->role->name === 'admin')
+                            <x-jet-nav-link href="{{ route('admin.events.index') }}"
+                                :active="request()->routeIs('admin.events.index')">
+                                {{ __('Events') }}
+                            </x-jet-nav-link>
+                        @endif
+                    @endauth
                 </div>
             </div>
 
@@ -154,7 +162,7 @@
 
                                     <x-jet-dropdown-link href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                this.closest('form').submit();">
+                                                                                                                this.closest('form').submit();">
                                         {{ __('Log Out') }}
                                     </x-jet-dropdown-link>
                                 </form>
@@ -243,8 +251,9 @@
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
-                        <x-jet-responsive-nav-link href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                            this.closest('form').submit();">
+                        <x-jet-responsive-nav-link href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                                                                            this.closest('form').submit();">
                             {{ __('Log Out') }}
                         </x-jet-responsive-nav-link>
                     </form>

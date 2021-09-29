@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ['today' => Carbon\Carbon::today()]);
 })->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
