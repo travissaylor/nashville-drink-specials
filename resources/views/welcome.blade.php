@@ -10,7 +10,7 @@
                 <!-- hero text -->
                 <div class="hero-text col-span-6">
                     <h1 class=" font-bold text-4xl md:text-5xl max-w-xl text-gray-900 leading-tight">Catch Up On All the
-                        Drink Specials In Music City</h1>
+                        Drink Specials that Music City Has To Offer</h1>
                     <hr class=" w-12 h-1 bg-orange-500 rounded-full mt-8">
                     <p class="text-gray-800 text-base leading-relaxed mt-8 font-semibold">Find the best deals and meet up
                         with friends the fun way! We've put together a resourece to help you find all the drinks
@@ -18,9 +18,9 @@
                     <div class="get-app flex space-x-5 mt-10 justify-center md:justify-start">
                         <a href="{{ route('occurrences.day', ['year' => $today->year, 'month' => $today->month, 'day' => $today->day]) }}"
                             class="flex text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Today</a>
-                            <a href="{{ route('occurrences.month', ['year' => $today->year, 'month' => $today->month]) }}"
-                                class="flex text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">{{ $today->localeMonth}}</a>
-                        
+                        <a href="{{ route('occurrences.month', ['year' => $today->year, 'month' => $today->month]) }}"
+                            class="flex text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">{{ $today->localeMonth }}</a>
+
                     </div>
                 </div>
 
