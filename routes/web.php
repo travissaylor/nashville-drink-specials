@@ -26,6 +26,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::get('/occurances/calendar', function () {
+    return view('calendar.calendar');
+})->name('occurrences.calendar');
+
 Route::get('/occurances/day/{year}/{month}/{day}', Day::class)->name('occurrences.day');
 Route::get('/occurances/month/{year}/{month}', Month::class)->name('occurrences.month');
 

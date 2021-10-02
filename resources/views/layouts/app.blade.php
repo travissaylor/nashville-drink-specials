@@ -18,7 +18,6 @@
 
         <!-- Scripts -->
         @wireUiScripts
-        <script src="alpine.js"></script>
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
@@ -45,5 +44,6 @@
         @stack('modals')
 
         @livewireScripts
+        @livewireCalendarScripts
     </body>
 </html>
