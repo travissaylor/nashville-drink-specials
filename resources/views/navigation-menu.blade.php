@@ -16,12 +16,17 @@
                     <x-jet-nav-link
                         href="{{ route('occurrences.day', ['year' => $today->year, 'month' => $today->month, 'day' => $today->day]) }}"
                         :active="request()->routeIs('occurrences.day')">
-                        {{ __('Day') }}
+                        {{ __('Today') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link
                         href="{{ route('occurrences.month', ['year' => $today->year, 'month' => $today->month]) }}"
                         :active="request()->routeIs('occurrences.month')">
-                        {{ __('Month') }}
+                        {{ $today->localeMonth }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link
+                        href="{{ route('occurrences.calendar') }}"
+                        :active="request()->routeIs('occurrences.calendar')">
+                        {{ __('Calendar') }}
                     </x-jet-nav-link>
                     @auth
                         @if (auth()->user()->role->name === 'admin')
@@ -162,7 +167,7 @@
 
                                     <x-jet-dropdown-link href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                this.closest('form').submit();">
+                                                                                                                    this.closest('form').submit();">
                                         {{ __('Log Out') }}
                                     </x-jet-dropdown-link>
                                 </form>
@@ -253,7 +258,7 @@
 
                         <x-jet-responsive-nav-link href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                                                                                            this.closest('form').submit();">
+                                                                                                this.closest('form').submit();">
                             {{ __('Log Out') }}
                         </x-jet-responsive-nav-link>
                     </form>
