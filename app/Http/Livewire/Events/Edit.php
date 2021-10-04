@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Events;
 
+use App\Jobs\GenerateEventUpdateOccurrences;
 use App\Models\Event;
 use App\Models\RecurringPattern;
 use App\Models\Venu;
@@ -80,6 +81,8 @@ class Edit extends Component
         }
 
         $this->event->push();
+
+        GenerateEventUpdateOccurrences::dispatch($this->event);
 
         return redirect()->route('admin.events.index');
     }
