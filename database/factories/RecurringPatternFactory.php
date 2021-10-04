@@ -24,12 +24,12 @@ class RecurringPatternFactory extends Factory
     public function definition()
     {
         return [
-            'event_id' => Event::factory(),
-            'recurring_type' => $this->faker->word,
-            'repeat_interval' => $this->faker->numberBetween(-8, 8),
-            'max_occurrences' => $this->faker->numberBetween(-10000, 10000),
-            'repeat_by_days' => $this->faker->regexify('[A-Za-z0-9]{2}'),
-            'repeat_by_months' => $this->faker->numberBetween(-8, 8),
+            'event_id' => Event::factory()->recurring(),
+            'recurring_type' => $this->faker->randomElement(RecurringPattern::$recurringTypes),
+            'repeat_interval' => $this->faker->numberBetween(1, 10),
+            'max_occurrences' => $this->faker->numberBetween(1, 10000),
+            'repeat_by_days' => null, // @todo Add this functionality
+            'repeat_by_months' => null, // @todo Add this functionality
         ];
     }
 }

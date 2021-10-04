@@ -24,8 +24,8 @@ class VenuFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
-            'description' => $this->faker->text,
+            'name' => $this->faker->sentence(),
+            'description' => $this->faker->paragraph(),
             'address' => $this->faker->address(),
             'phone_number' => $this->faker->phoneNumber,
             'website_url' => $this->faker->url(),
