@@ -21,7 +21,7 @@ class GenerateOccurrences extends Command
      *
      * @var string
      */
-    protected $description = 'Generate/Re-generate occurrences for all events';
+    protected $description = 'Delete all occurrences and generate new ones for all events';
 
     /**
      * Create a new command instance.
