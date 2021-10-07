@@ -5,7 +5,8 @@
                 <div class="flex items-center">
                     <?php $prevDay = $date->copy()->subDay(); ?>
                     <a
-                        href="{{ route('occurrences.day', ['year' => $prevDay->year, 'month' => $prevDay->month, 'day' => $prevDay->day]) }}"><span class="text-xl">&larr;</span> {{ $prevDay->toFormattedDateString() }}</a>
+                        href="{{ route('occurrences.day', ['year' => $prevDay->year, 'month' => $prevDay->month, 'day' => $prevDay->day]) }}"><span
+                            class="text-xl">&larr;</span> {{ $prevDay->toFormattedDateString() }}</a>
                 </div>
                 <div class="flex flex-col text-center items-center">
                     <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">
@@ -15,7 +16,8 @@
                 <div class="flex items-center">
                     <?php $nextDay = $date->copy()->addDay(); ?>
                     <a
-                        href="{{ route('occurrences.day', ['year' => $nextDay->year, 'month' => $nextDay->month, 'day' => $nextDay->day]) }}">{{ $nextDay->toFormattedDateString() }} <span class="text-xl">&rarr;</span></a>
+                        href="{{ route('occurrences.day', ['year' => $nextDay->year, 'month' => $nextDay->month, 'day' => $nextDay->day]) }}">{{ $nextDay->toFormattedDateString() }}
+                        <span class="text-xl">&rarr;</span></a>
                 </div>
             </div>
             @foreach ($occurrences as $occurrence)
@@ -34,13 +36,19 @@
                         @if (!empty($occurrence->event->description))
                             <p class="leading-relaxed">{{ $occurrence->event->description }}</p>
                         @endif
-                        <a class="text-indigo-500 inline-flex items-center mt-4">Learn More
-                            <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
-                                fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
+                        <div class="flex justify-between">
+                            <div class="flex items-center">
+                                <img class="h-8 w-8 rounded-full mr-2" src="{{$occurrence->event->user->getProfilePhotoUrlAttribute()}}" alt="{{ $occurrence->event->user->name }}" /> 
+                                <h4>{{ $occurrence->event->user->name }}</h4>
+                            </div>
+                            <a class="text-indigo-500 inline-flex items-center mt-4">Learn More
+                                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14"></path>
+                                    <path d="M12 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
             @endforeach

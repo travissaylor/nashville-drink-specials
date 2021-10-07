@@ -56,6 +56,7 @@ class EventFactory extends Factory
             'is_full_day' => $isFullDay,
             'is_recurring' => $this->faker->boolean,
             'venu_id' => Venu::factory(),
+            'user_id' => 1, // @todo make this dynamic
         ];
     }
 }

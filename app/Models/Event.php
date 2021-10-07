@@ -24,6 +24,7 @@ class Event extends Model
         'is_full_day',
         'is_recurring',
         'venu_id',
+        'user_id',
     ];
 
     /**
@@ -38,6 +39,7 @@ class Event extends Model
         'is_full_day' => 'boolean',
         'is_recurring' => 'boolean',
         'venu_id' => 'integer',
+        'user_id' => 'integer',
     ];
 
 

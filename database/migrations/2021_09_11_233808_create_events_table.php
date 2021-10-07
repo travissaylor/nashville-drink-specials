@@ -26,6 +26,7 @@ class CreateEventsTable extends Migration
             $table->boolean('is_full_day');
             $table->boolean('is_recurring');
             $table->foreignId('venu_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
 
