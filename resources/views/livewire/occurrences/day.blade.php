@@ -41,7 +41,7 @@
                                 <img class="h-8 w-8 rounded-full mr-2" src="{{$occurrence->event->user->getProfilePhotoUrlAttribute()}}" alt="{{ $occurrence->event->user->name }}" /> 
                                 <h4>{{ $occurrence->event->user->name }}</h4>
                             </div>
-                            <a class="text-indigo-500 inline-flex items-center mt-4">Learn More
+                            <a href="{{ route("occurrences.show", ['id' => $occurrence->id]) }}" class="text-indigo-500 inline-flex items-center mt-4">Learn More
                                 <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
                                     fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M5 12h14"></path>

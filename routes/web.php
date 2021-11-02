@@ -5,6 +5,7 @@ use App\Http\Livewire\Events\Edit;
 use App\Http\Livewire\Events\Index;
 use App\Http\Livewire\Occurrences\Day;
 use App\Http\Livewire\Occurrences\Month;
+use App\Http\Livewire\Occurrences\Show;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,8 @@ Route::get('/occurances/calendar', function () {
 
 Route::get('/occurances/day/{year}/{month}/{day}', Day::class)->name('occurrences.day');
 Route::get('/occurances/month/{year}/{month}', Month::class)->name('occurrences.month');
+Route::get('/occurances/{id}', Show::class)->name('occurrences.show');
+
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard', function () {

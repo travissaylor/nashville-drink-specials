@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -34,6 +35,20 @@ class Occurrence extends Model
         'end_date' => 'date',
     ];
 
+    public function getCarbonStartDateAttribute()
+    {
+        return Carbon::parse($this->start_date);
+    }
+
+    public function getCarbonStartTimeAttribute()
+    {
+        return Carbon::parse($this->start_time);
+    }
+
+    public function getCarbonEndTimeAttribute()
+    {
+        return Carbon::parse($this->end_time);
+    }
 
     public function event()
     {
