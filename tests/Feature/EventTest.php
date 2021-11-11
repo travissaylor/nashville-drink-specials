@@ -48,6 +48,7 @@ class EventTest extends TestCase
     public function test_single_event_edit()
     {
         $event = Event::factory()->create([
+            'name' => "Bob Johnson",
             'is_recurring' => false
         ]);
         
