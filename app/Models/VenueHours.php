@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class VenuHours extends Model
+class VenueHours extends Model
 {
     use HasFactory;
 
@@ -15,7 +15,7 @@ class VenuHours extends Model
      * @var array
      */
     protected $fillable = [
-        'venu_id',
+        'venue_id',
         'day',
         'open_time',
         'close_time',
@@ -28,12 +28,12 @@ class VenuHours extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'venu_id' => 'integer',
+        'venue_id' => 'integer',
     ];
 
 
-    public function venu()
+    public function venue()
     {
-        return $this->belongsTo(\App\Models\Venu::class);
+        return $this->belongsTo(\App\Models\Venue::class);
     }
 }

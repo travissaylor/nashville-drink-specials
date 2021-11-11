@@ -9,9 +9,9 @@
                     <x-textarea label="Description" placeholder="Event Description" />
                 </div>
                 <div class="p-2 w-full">
-                    <x-select label="Venu" placeholder="Select a Venu" wire:model="selectedVenuId">
-                        @foreach ($venus as $venu)
-                            <x-select.option label="{{ $venu->name }}" value="{{ $venu->id }}" />
+                    <x-select label="Venue" placeholder="Select a Venue" wire:model="selectedVenueId">
+                        @foreach ($venues as $venue)
+                            <x-select.option label="{{ $venue->name }}" value="{{ $venue->id }}" />
                         @endforeach
                     </x-select>
                 </div>

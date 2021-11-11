@@ -29,8 +29,8 @@ class Neighborhood extends Model
     ];
 
 
-    public function venus()
+    public function venues()
     {
-        return $this->hasMany(\App\Models\Venu::class);
+        return $this->hasMany(\App\Models\Venue::class);
     }
 }
