@@ -3,18 +3,17 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
-use App\Models\Venu;
-use App\Models\VenuHours;
+use App\Models\Venue;
+use App\Models\VenueHours;
 
-class VenuHoursFactory extends Factory
+class VenueHoursFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = VenuHours::class;
+    protected $model = VenueHours::class;
 
     /**
      * Define the model's default state.
@@ -24,7 +23,7 @@ class VenuHoursFactory extends Factory
     public function definition()
     {
         return [
-            'venu_id' => Venu::factory(),
+            'venue_id' => Venue::factory(),
             'day' => $this->faker->numberBetween(0, 6),
             'open_time' => $this->faker->time(),
             'close_time' => $this->faker->time(),

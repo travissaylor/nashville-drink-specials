@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Venu;
+use App\Models\Venue;
 use Illuminate\Database\Seeder;
 
-class VenuSeeder extends Seeder
+class VenueSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class VenuSeeder extends Seeder
      */
     public function run()
     {
-        Venu::factory()->count(5)->create();
+        Venue::factory()->count(5)->create();
     }
 }

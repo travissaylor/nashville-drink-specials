@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVenuHoursTable extends Migration
+class CreateVenueHoursTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,9 +15,9 @@ class CreateVenuHoursTable extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('venu_hours', function (Blueprint $table) {
+        Schema::create('venue_hours', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('venu_id')->constrained();
+            $table->foreignId('venue_id')->constrained();
             $table->integer('day');
             $table->time('open_time');
             $table->time('close_time');
@@ -34,6 +34,6 @@ class CreateVenuHoursTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('venu_hours');
+        Schema::dropIfExists('venue_hours');
     }
 }

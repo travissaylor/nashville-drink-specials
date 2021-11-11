@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\Event;
 use App\Models\EventException;
-use App\Models\Venu;
+use App\Models\Venue;
 
 class EventExceptionFactory extends Factory
 {
@@ -34,7 +34,7 @@ class EventExceptionFactory extends Factory
             'end_time' => $this->faker->time(),
             'is_full_day' => $this->faker->boolean,
             'is_recurring' => $this->faker->boolean,
-            'venu_id' => Venu::factory(),
+            'venue_id' => Venue::factory(),
         ];
     }
 }

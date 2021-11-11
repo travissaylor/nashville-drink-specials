@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\Event;
-use App\Models\Venu;
+use App\Models\Venue;
 use Carbon\Carbon;
 
 class EventFactory extends Factory
@@ -55,7 +55,7 @@ class EventFactory extends Factory
             'end_time' => $endTime,
             'is_full_day' => $isFullDay,
             'is_recurring' => $this->faker->boolean,
-            'venu_id' => Venu::factory(),
+            'venue_id' => Venue::factory(),
             'user_id' => 1, // @todo make this dynamic
         ];
     }

@@ -19,7 +19,7 @@ class Day extends Component
     }
     public function render()
     {
-        $occurrences = Occurrence::where('start_date', '=', $this->date->toDateString())->with(['event.venu'])->orderBy('start_time')->paginate(5);
+        $occurrences = Occurrence::where('start_date', '=', $this->date->toDateString())->with(['event.venue'])->orderBy('start_time')->paginate(5);
         return view('livewire.occurrences.day', [
             'occurrences' => $occurrences
         ]);

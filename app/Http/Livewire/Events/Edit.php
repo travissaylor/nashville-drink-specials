@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Events;
 use App\Jobs\GenerateEventUpdateOccurrences;
 use App\Models\Event;
 use App\Models\RecurringPattern;
-use App\Models\Venu;
+use App\Models\Venue;
 use Livewire\Component;
 
 class Edit extends Component
@@ -21,8 +21,8 @@ class Edit extends Component
     public $isRecurring = false;
     public $isFullDay = false;
 
-    public $venus;
-    public $selectedVenuId;
+    public $venues;
+    public $selectedVenueId;
 
     public $recurringTypes = [];
     public $selectedRecurringType;
@@ -41,7 +41,7 @@ class Edit extends Component
 
     public function mount($id)
     {
-        $this->event = Event::with(['recurringPattern', 'venu'])->find($id);
+        $this->event = Event::with(['recurringPattern', 'venue'])->find($id);
         $this->name = $this->event->name;
         $this->description = $this->event->description;
 
@@ -53,8 +53,8 @@ class Edit extends Component
         $this->isRecurring = $this->event->is_recurring;
         $this->isFullDay = $this->event->is_full_day;
 
-        $this->venus = Venu::all();
-        $this->selectedVenuId = $this->event->venu_id;
+        $this->venues = Venue::all();
+        $this->selectedVenueId = $this->event->venue_id;
 
         $this->recurringTypes = RecurringPattern::$recurringTypes;
         $this->selectedRecurringType = $this->event->recurringPattern->recurring_type ?? null;
@@ -74,7 +74,7 @@ class Edit extends Component
         $this->event->end_time = $this->endTime;
         $this->event->is_recurring  = $this->isRecurring;
         $this->event->is_full_day  = $this->isFullDay;
-        $this->event->venu_id  = $this->selectedVenuId;
+        $this->event->venue_id  = $this->selectedVenueId;
 
         if ($this->isRecurring) {
             $this->updateRecurringPattern();
