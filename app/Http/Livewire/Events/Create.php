@@ -4,7 +4,8 @@ namespace App\Http\Livewire\Events;
 
 use App\Models\Event;
 use App\Models\RecurringPattern;
-use App\Models\Venu;
+use App\Models\Venue;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Create extends Component
@@ -20,8 +21,8 @@ class Create extends Component
     public $isRecurring = false;
     public $isFullDay = false;
     
-    public $venus;
-    public $selectedVenuId;
+    public $venues;
+    public $selectedVenueId;
 
     public $recurringTypes = [];
     public $selectedRecurringType;
@@ -38,8 +39,8 @@ class Create extends Component
 
     public function mount()
     {
-        $this->venus = Venu::all();
-        $this->selectedVenuId = $this->venus[0]->id;
+        $this->venues = Venue::all();
+        $this->selectedVenueId = $this->venues[0]->id;
 
         $this->recurringTypes = RecurringPattern::$recurringTypes;
     }
@@ -57,7 +58,8 @@ class Create extends Component
             'end_time' => $this->endTime,
             'is_recurring' => $this->isRecurring,
             'is_full_day' => $this->isFullDay,
-            'venu_id' => $this->selectedVenuId,
+            'venue_id' => $this->selectedVenueId,
+            'user_id' => Auth::id(),
         ]);
 
         if ($this->isRecurring) {

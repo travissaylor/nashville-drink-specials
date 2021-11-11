@@ -20,7 +20,7 @@ class Month extends Component
 
     public function render()
     {
-        $occurrences = Occurrence::whereMonth('start_date', '=', $this->date->month)->with(['event.venu'])->orderBy('start_date')->paginate(20);
+        $occurrences = Occurrence::whereMonth('start_date', '=', $this->date->month)->with(['event.venue'])->orderBy('start_date')->paginate(20);
         return view('livewire.occurrences.month', [
             'occurrences' => $occurrences
         ]);

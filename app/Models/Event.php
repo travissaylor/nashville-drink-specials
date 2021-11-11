@@ -23,7 +23,7 @@ class Event extends Model
         'end_time',
         'is_full_day',
         'is_recurring',
-        'venu_id',
+        'venue_id',
         'user_id',
     ];
 
@@ -38,7 +38,7 @@ class Event extends Model
         'end_date' => 'date',
         'is_full_day' => 'boolean',
         'is_recurring' => 'boolean',
-        'venu_id' => 'integer',
+        'venue_id' => 'integer',
         'user_id' => 'integer',
     ];
 
@@ -63,8 +63,8 @@ class Event extends Model
         return $this->belongsTo(\App\Models\User::class);
     }
 
-    public function venu()
+    public function venue()
     {
-        return $this->belongsTo(\App\Models\Venu::class);
+        return $this->belongsTo(\App\Models\Venue::class);
     }
 }

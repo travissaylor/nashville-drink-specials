@@ -32,7 +32,7 @@
                     <div class="md:flex-grow">
                         <h2 class="text-2xl font-medium text-gray-900 title-font">{{ $occurrence->event->name }}
                         </h2>
-                        <p class="leading-relaxed text-lg mb-1">{{ $occurrence->event->venu->name }}</p>
+                        <p class="leading-relaxed text-lg mb-1">{{ $occurrence->event->venue->name }}</p>
                         @if (!empty($occurrence->event->description))
                             <p class="leading-relaxed">{{ $occurrence->event->description }}</p>
                         @endif

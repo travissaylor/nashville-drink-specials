@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVenusTable extends Migration
+class CreateVenuesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class CreateVenusTable extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('venus', function (Blueprint $table) {
+        Schema::create('venues', function (Blueprint $table) {
             $table->id();
             $table->string('name', 400);
             $table->text('description')->nullable();
@@ -37,6 +37,6 @@ class CreateVenusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('venus');
+        Schema::dropIfExists('venues');
     }
 }

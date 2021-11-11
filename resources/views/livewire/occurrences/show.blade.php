@@ -15,7 +15,7 @@
                 </div>
                 <div class="flex flex-col w-3/4">
                     <h1 class="font-serif sm:text-2xl text-xl font-bold">{{ $occurrence->event->name }}</h1>
-                    <h3 class="font-serif sm:text-xl text-md">{{ $occurrence->event->venu->name }}</h3>
+                    <h3 class="font-serif sm:text-xl text-md">{{ $occurrence->event->venue->name }}</h3>
                 </div>
             </div>
             <div class="flex sm:flex-row flex-col space-x-4 my-8 items-start">
@@ -43,7 +43,7 @@
                         </div>
                         <div class="flex flex-col w-3/4">
                             <h4 class="font-serif sm:flex hidden sm:text-lg text-xl font-bold">Location</h4>
-                            <p class="text-lg font-thin">{{ $occurrence->event->venu->address }}</p>
+                            <p class="text-lg font-thin">{{ $occurrence->event->venue->address }}</p>
                         </div>
                     </div>
                     <div class="flex w-full items-center sm:space-x-0 space-x-4">
@@ -52,7 +52,7 @@
                         </div>
                         <div class="flex flex-col w-3/4">
                             <h4 class="font-serif sm:flex hidden sm:text-lg text-xl font-bold">Neighborhood</h4>
-                            <p class="text-lg font-thin">{{ $occurrence->event->venu->neighborhood->name }}
+                            <p class="text-lg font-thin">{{ $occurrence->event->venue->neighborhood->name }}
                             </p>
                         </div>
                     </div>

@@ -5,16 +5,16 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\Neighborhood;
-use App\Models\Venu;
+use App\Models\Venue;
 
-class VenuFactory extends Factory
+class VenueFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Venu::class;
+    protected $model = Venue::class;
 
     /**
      * Define the model's default state.

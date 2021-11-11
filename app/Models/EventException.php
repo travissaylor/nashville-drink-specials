@@ -24,7 +24,7 @@ class EventException extends Model
         'end_time',
         'is_full_day',
         'is_recurring',
-        'venu_id',
+        'venue_id',
     ];
 
     /**
@@ -41,7 +41,7 @@ class EventException extends Model
         'end_date' => 'date',
         'is_full_day' => 'boolean',
         'is_recurring' => 'boolean',
-        'venu_id' => 'integer',
+        'venue_id' => 'integer',
     ];
 
 
@@ -55,8 +55,8 @@ class EventException extends Model
         return $this->belongsTo(\App\Models\Event::class);
     }
 
-    public function venu()
+    public function venue()
     {
-        return $this->belongsTo(\App\Models\Venu::class);
+        return $this->belongsTo(\App\Models\Venue::class);
     }
 }
